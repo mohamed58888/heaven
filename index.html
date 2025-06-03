@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ar">
+  <head>
+    <meta charset="UTF-8" />
+    <title>I love you</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial;
+        overflow: hidden;
+        /* خلي الخلفية الأساسية فارغة لو عايز الصورة في الخلفية الجديدة فقط */
+        background: none;
+      }
+
+      .background-image {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: url("flowers.jpg") no-repeat center center fixed;
+        background-size: cover;
+        z-index: -2; /* تحت الفيديوهات */
+      }
+
+      .video-grid {
+        display: grid;
+        grid-template-columns: repeat(3, max-content);
+        grid-auto-rows: max-content;
+        justify-content: center; /* يوسط الشبكة أفقياً */
+        width: 100vw;
+        height: 100vh;
+        overflow: auto;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        gap: 5px;
+      }
+
+      video {
+        width: auto;
+        height: auto;
+        max-width: 100%;
+        max-height: 33vh; /* عشان ما يبقاش عالي قوي */
+        opacity: 0.7;
+        margin: auto;
+        display: block;
+      }
+
+      .overlay {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        color: white;
+        z-index: 1; /* فوق كل حاجة */
+      }
+
+      button {
+        font-size: 22px;
+        padding: 12px 24px;
+        border: none;
+        border-radius: 12px;
+        background-color: rgba(128, 0, 128, 0.7); /* purple with transparency */
+        color: white;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: rgba(100, 0, 100, 0.9);
+      }
+
+      h1 {
+        font-size: 28px;
+        margin-bottom: 20px;
+        color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="background-image"></div>
+
+    <div class="video-grid">
+      <!-- Placeholder videos (you can replace with actual video URLs or local files) -->
+      <video autoplay loop muted playsinline src="/heaven/1.mp4"></video>
+      <video autoplay loop muted playsinline src="/heaven/2.mp4"></video>
+      <video autoplay loop muted playsinline src="/heaven/3.mp4"></video>
+      <video autoplay loop muted playsinline src="/heaven/4.mp4"></video>
+      <video autoplay loop muted playsinline src="/heaven/5.mp4"></video>
+      <video autoplay loop muted playsinline src="/heaven/6.mp4"></video>
+      <video autoplay loop muted playsinline src="/heaven/7.mp4"></video>
+      <video autoplay loop muted playsinline src="/heaven/11.mp4"></video>
+      <video autoplay loop muted playsinline src="/heaven/9.mp4"></video>
+      <video autoplay loop muted playsinline src="/heaven/10.mp4"></video>
+      <video autoplay loop muted playsinline src="/heaven/12.mp4"></video>
+      <video autoplay loop muted playsinline src="/heaven/13.mp4"></video>
+      <video autoplay loop muted playsinline src="/heaven/14.mp4"></video>
+      <video autoplay loop muted playsinline src="/heaven/8.mp4"></video>
+      <video autoplay loop muted playsinline src="/heaven/15.mp4"></video>
+    </div>
+
+    <div class="overlay">
+      <h1>what can i say , sorry my heaven</h1>
+      <button onclick="playMusic()">please Henetti Click Here</button>
+      <audio
+        id="music"
+        src="Ghostly_Kisses_-_Heaven_Wait_(Hydr0.org).mp3"
+        preload="auto"
+      ></audio>
+    </div>
+
+    <script>
+      function playMusic() {
+        const audio = document.getElementById("music");
+        audio.play().catch((err) => {
+          console.error("تعذر تشغيل الموسيقى:", err);
+        });
+      }
+    </script>
+  </body>
+</html>
